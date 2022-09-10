@@ -13,7 +13,7 @@
 package org.eclipse.tycho.apitools;
 
 import java.io.File;
-import java.util.jar.JarFile;
+import java.util.Set;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -75,12 +75,18 @@ public class ApiFileGenerationMojo extends AbstractMojo {
 	@Parameter
 	protected String extraSourceLocations;
 
+	/**
+	 * @Since 3.1.0
+	 */
+	@Parameter(defaultValue = "eclipse-plugin-project")
+	private Set<String> supportedPackagingTypes;
+
 	@Parameter(defaultValue = "false", property = "tycho.apitools.generate.skip")
 	private boolean skip;
 
 	@Override
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		if (new File(project.getBasedir(), JarFile.MANIFEST_NAME).isFile()) {
+		if (supportedPackagingTypes.contains(project.getPackaging())) {
 			synchronized (ApiFileGenerationMojo.class) {
 				// TODO check if the generator is thread safe, then we can remove this!
 				APIFileGenerator generator = new APIFileGenerator();

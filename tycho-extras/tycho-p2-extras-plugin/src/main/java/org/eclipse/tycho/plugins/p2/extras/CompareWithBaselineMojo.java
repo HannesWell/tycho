@@ -127,6 +127,7 @@ public class CompareWithBaselineMojo extends AbstractMojo {
             getLog().info("Skipped");
             return;
         }
+        //TODO: unify into a an abstractBaseline-mojo? Use that also for p2-metadata validation. Actually there is no need to copy that into the target-folder?
         ReactorProject reactorProject = DefaultReactorProject.adapt(project);
         Set<IInstallableUnit> dependencyMetadata = reactorProject.getDependencyMetadata(DependencyMetadataType.SEED);
         if (dependencyMetadata == null || dependencyMetadata.isEmpty()) {
