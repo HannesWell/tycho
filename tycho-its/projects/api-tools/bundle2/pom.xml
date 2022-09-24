@@ -6,6 +6,6 @@
 	<artifactId>apitools-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>api-bundle</artifactId>
+  <artifactId>api-bundle-2</artifactId>
   <packaging>eclipse-plugin</packaging>
 </project>

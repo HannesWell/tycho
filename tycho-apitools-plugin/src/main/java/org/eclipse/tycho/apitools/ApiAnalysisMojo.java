@@ -161,7 +161,7 @@ public class ApiAnalysisMojo extends AbstractMojo {
 	public Set<File> collectProjectDependencyPaths() {
 		// TODO: move called method here when that plug-in is removed
 		return ListDependenciesMojo.collectProjectDependencyPaths(project, projectTypes);
-	}
+	} //FIXME: the osgi-system-bundle has to be added too! C:\Users\Hannes\.m2\repository\p2\osgi\bundle\org.eclipse.osgi\3.18.100.v20220817-1601\org.eclipse.osgi-3.18.100.v20220817-1601.jar
 
 	@Requirement
 	private PlexusContainer container;

@@ -34,5 +34,8 @@ public class ApiToolsTest extends AbstractTychoIntegrationTest {
 		verifier.executeGoals(List.of("clean", "verify"));
 		List<String> logLines = Files.readAllLines(Path.of(verifier.getBasedir(), verifier.getLogFileName()));
 		// TODO: check that there are some API-errors
+		// TODO: check with api-filter
+		// TODO: check with second plugin with BREE?
+
 	}
 }
